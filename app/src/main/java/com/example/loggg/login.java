@@ -1,5 +1,6 @@
 package com.example.loggg;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -15,7 +16,7 @@ public class login extends AppCompatActivity {
     SQLiteDatabase db;
     SQLiteOpenHelper openHelper;
 
-    Button _btnLogin;
+    Button _btnLogin, _btnreg;
     EditText _txtEmail,_txtPass;
 
     Cursor cursor;
@@ -27,9 +28,10 @@ public class login extends AppCompatActivity {
 
         openHelper = new DatabaseHelper(this);
         db = openHelper.getReadableDatabase();
-        _btnLogin = (Button)findViewById(R.id.btnLogin);
-        _txtEmail = (EditText)findViewById(R.id.txtEmail);
-        _txtPass = (EditText)findViewById(R.id.txtPass);
+        _btnLogin = (Button)findViewById(R.id.btn_login);
+        _btnreg = (Button)findViewById(R.id.btn_reg);
+        _txtEmail = (EditText)findViewById(R.id.et_email);
+        _txtPass = (EditText)findViewById(R.id.et_password);
 
         _btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,15 @@ public class login extends AppCompatActivity {
                 }
             }
         });
+
+        _btnreg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(login.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
 }

@@ -23,12 +23,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         openHelper = new DatabaseHelper(this);
-        _btnreg = (Button)findViewById(R.id.btnreg);
-        _txtfname = (EditText) findViewById(R.id.txtfname);
-        _txtlname = (EditText) findViewById(R.id.txtlname);
-        _txtpass = (EditText) findViewById(R.id.txtpass);
-        _txtemail = (EditText) findViewById(R.id.txtemail);
-        _btnlogin = (Button)findViewById(R.id.btnlogin1);
+        _btnreg = (Button)findViewById(R.id.btn_register);
+        _txtfname = (EditText) findViewById(R.id.rt_fname);
+        _txtlname = (EditText) findViewById(R.id.rt_lname);
+        _txtpass = (EditText) findViewById(R.id.rt_password);
+        _txtemail = (EditText) findViewById(R.id.rt_email);
+        _btnlogin = (Button)findViewById(R.id.rt_login);
 
         _btnreg.setOnClickListener(new View.OnClickListener() {
             @Override
