@@ -21,6 +21,8 @@ import android.util.SparseArray;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -38,7 +40,7 @@ public class Image extends AppCompatActivity {
     //Initialize Variable for all the Button ID's you created in the xml file
     EditText mResultEt;
     ImageView mPreviewIv;
-
+    Button _speech;
 
     private static final int CAMERA_REQUEST_CODE = 200;
     private static final int STORAGE_REQUEST_CODE = 400;
@@ -61,14 +63,25 @@ public class Image extends AppCompatActivity {
         //Assign Variables declared above to each and every Button by using findViewById...
         //... to find the ID of the buttons from the xml file so that it links to the Java file...
         //...and we can assign ant task that the particular tool will perform through the Java file
-        mResultEt = findViewById(R.id.resultEt);
-        mPreviewIv = findViewById(R.id.imageIv);
+        mResultEt = (EditText)findViewById(R.id.resultEt);
+        mPreviewIv = (ImageView)findViewById(R.id.imageIv);
+        _speech = (Button)findViewById(R.id.Speech);
 
         //Manifest file is used for all the permission that an app can require, like Internet access, camera and storage access
         //camera permission
         cameraPermission = new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE};
         //storage permission
         storagePermission = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
+        //Speech Button to direct the user to Text-to-Speech Convertor
+        _speech.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Image.this, SpeechActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     //Actionbar Menu ----->>>
